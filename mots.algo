@@ -1,0 +1,46 @@
+ALGORITHM mots
+VAR
+    VAR
+        caractère : Caractère
+        longueur : Entier
+        nb_mots : Entier
+        nb_voyelles : Entier
+        espace_precedent : Booléen
+
+Début
+
+    Afficher "Entrer une phrase se terminant par un point :"
+    Lire caractère par caractère jusqu’à lire un point "."
+
+    Initialiser :
+        longueur ← 0
+        nb_mots ← 0
+        nb_voyelles ← 0
+        espace_precedent ← vrai
+
+    Tant que caractère ≠ "."
+        longueur ← longueur + 1
+
+        Si caractère est une voyelle (a, e, i, o, u, y en minuscule ou majuscule)
+            nb_voyelles ← nb_voyelles + 1
+        Fin Si
+
+        Si caractère = " "
+            espace_precedent ← vrai
+        Sinon
+            Si espace_precedent = vrai
+                nb_mots ← nb_mots + 1
+                espace_precedent ← faux
+            Fin Si
+        Fin Si
+
+        Lire le caractère suivant
+    Fin Tant que
+
+    longueur ← longueur + 1  // pour compter le point
+
+    Afficher "Longueur de la phrase : ", longueur
+    Afficher "Nombre de mots : ", nb_mots
+    Afficher "Nombre de voyelles : ", nb_voyelles
+
+Fin
